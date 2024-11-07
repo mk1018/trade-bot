@@ -1,13 +1,5 @@
-import os
 import asyncio
 import src.exchanges.okcoin.websocket as ws
-
-
-url = "wss://connect.okcoin.jp:443/ws/v3"
-
-api_key = os.getenv("OKCOIN_API_KEY")
-secret_key = os.getenv("OKCOIN_SECRET_KEY")
-passphrase = os.getenv("OKCOIN_PASSPHRASE")
 
 # User Spot Account
 # 用户币币账户频道
@@ -42,20 +34,26 @@ channels = ["spot/ticker:BTC-JPY"]
 # channels = ["spot/depth:BTC-JPY"]
 
 
-def main():
-    loop = asyncio.get_event_loop()
+class OKCoin:
+    URL = "wss://connect.okcoin.jp:443/ws/v3"
 
-    # For Public Channel
-    # loop.run_until_complete(ws.subscribe_without_login(url, channels))
+    def __init__(self, api_key: str, secret_key: str, passphrase: str) -> None:
+        self.api_key = api_key
+        self.secret_key = secret_key
+        self.passphrase = passphrase
 
-    # For Private Channel
-    loop.run_until_complete(
-        ws.subscribe(url, api_key, passphrase, secret_key, channels)
-    )
-    loop.run_forever()
+    def execute(self):
+        loop = asyncio.get_event_loop()
 
-    loop.close()
+        # For Public Channel
+        # loop.run_until_complete(ws.subscribe_without_login(url, channels))
 
+        # For Private Channel
+        loop.run_until_complete(
+            ws.subscribe(
+                self.URL, self.api_key, self.passphrase, self.secret_key, channels
+            )
+        )
+        loop.run_forever()
 
-if __name__ == "__main__":
-    main()
+        loop.close()
