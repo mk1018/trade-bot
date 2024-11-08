@@ -8,21 +8,74 @@
 #   with-sources: false
 
 -e file:.
+bitarray==3.0.0
+    # via eth-account
 certifi==2024.8.30
     # via requests
 charset-normalizer==3.4.0
     # via requests
+cytoolz==1.0.0
+    # via eth-utils
+eth-abi==4.2.1
+    # via eth-account
+    # via hyperliquid-python-sdk
+eth-account==0.10.0
+    # via hyperliquid-python-sdk
+eth-hash==0.7.0
+    # via eth-utils
+eth-keyfile==0.8.1
+    # via eth-account
+eth-keys==0.6.0
+    # via eth-account
+    # via eth-keyfile
+eth-rlp==1.0.1
+    # via eth-account
+eth-typing==5.0.1
+    # via eth-abi
+    # via eth-keys
+    # via eth-utils
+eth-utils==2.3.2
+    # via eth-abi
+    # via eth-account
+    # via eth-keyfile
+    # via eth-keys
+    # via eth-rlp
+    # via hyperliquid-python-sdk
+    # via rlp
+hexbytes==0.3.1
+    # via eth-account
+    # via eth-rlp
+hyperliquid-python-sdk==0.8.0
+    # via trade-bot
 idna==3.10
     # via requests
+msgpack==1.1.0
+    # via hyperliquid-python-sdk
+parsimonious==0.9.0
+    # via eth-abi
+pycryptodome==3.21.0
+    # via eth-keyfile
 python-dateutil==2.9.0.post0
     # via trade-bot
+regex==2024.11.6
+    # via parsimonious
 requests==2.32.3
+    # via hyperliquid-python-sdk
     # via trade-bot
+rlp==4.0.1
+    # via eth-account
+    # via eth-rlp
 ruff==0.7.2
     # via trade-bot
 six==1.16.0
     # via python-dateutil
+toolz==1.0.0
+    # via cytoolz
+typing-extensions==4.12.2
+    # via eth-typing
 urllib3==2.2.3
     # via requests
+websocket-client==1.8.0
+    # via hyperliquid-python-sdk
 websockets==13.1
     # via trade-bot
